@@ -209,6 +209,7 @@ def categoriesJSON():
 @app.route('/category/')
 def showCategory():
     category = session.query(Category).all()
+    items = session.query(SportItem).order_by(SportItem.id.desc())
     if 'username' not in login_session:
          return render_template('sportitem.html', category=category)
     else:
