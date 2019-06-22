@@ -1,0 +1,56 @@
+    
+<html>
+	
+<head>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<div class = 'pane'>
+		<h1>{{ category.name }}</h1>
+		
+		{% with messages = get_flashed_messages() %}
+      {% if messages %}
+          
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    {% endwith %}
+
+    {% if items !=[] %}
+
+		<a href = "{{url_for('newSportItem', category_id = category.id )}}">Create New Item</a>
+	</br></br>
+
+	<h2>Sport Item</h2>
+
+		{% for i in items %}
+		{% if i.sport_item = "Sport"' %}
+
+		<p>{{i.name}}</p>
+	
+
+		<p>{{i.description}}</p>
+	
+
+		<p>{{i.price}}</p>
+	
+		<a href='{{url_for('editSportItem', category_id = category.id, sport_item_id=i.id ) }}' >Edit</a>
+	</br>
+	<a href='{{url_for('deleteSportItem', category_id = category.id, category_id=i.id ) }}' >Delete</a>
+</br>
+</br>
+		{% endif %}
+
+		{% endfor %}
+
+		
+
+		</br></br>
+
+</div>
+	</body>
+
+</html>
