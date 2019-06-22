@@ -211,9 +211,9 @@ def showCategory():
     category = session.query(Category).all()
     items = session.query(SportItem).order_by(SportItem.id.desc())
     if 'username' not in login_session:
-         return render_template('sportitem.html', category=category)
+         return render_template('catalog.html', category=category)
     else:
-        return render_template('category.html', category=category)
+        return render_template('sportitem.html', category=category)
 
 
 # create a new catalog
