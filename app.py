@@ -140,7 +140,7 @@ def createUser(login_session):
 
 def getUserInfo(user_id):
     user = session.query(User).filter_by(id=user_id).one()
-     return user
+    return user
 
 
 def getUserID(email):
